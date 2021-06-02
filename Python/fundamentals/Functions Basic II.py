@@ -30,7 +30,6 @@ def funcion(arr):
             listnueva.append(arr[i])
     return listnueva
 
-
 print(funcion([5,2,3,2,1,4]))
 print(funcion([3]))
                                     #EJERCICIO 5
