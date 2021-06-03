@@ -10,7 +10,6 @@ def randInt(minimo=0, maximo=125):
         num = random.random() * top + minimo
         return round(num)
 
-
 print(randInt())
 print(randInt(maximo=1))
 print(randInt(minimo=20))
