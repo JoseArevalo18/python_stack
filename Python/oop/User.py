@@ -11,7 +11,7 @@ class User:
         self.account_balance -= amount
 
     def display_user_balance(self):
-        print("USUARIO:",self.name,"-","SALDO:",self.account_balance)
+        print("USUARIO:",self.name,"-","SALDO ACTUAL:",self.account_balance)
 
     def transfer_money(self,amount,user):
         self.account_balance -= amount
@@ -25,15 +25,15 @@ victor = User("Victor Arevalo", "vity_arevalo@hotmail.com")
 mecias = User("Mecias Arevalo", "meciasarevalo@hotmail.com")
 
                 #OPERACIONES DE TRANSFERENCIA
-#USUARIO JOSE
+#USUARIO1 JOSE
 jose.make_deposit(200)
 jose.make_deposit(500)
+jose.make_deposit(500)
 
-jose.make_withdrawal(40)
-jose.make_withdrawal(30)
+jose.make_withdrawal(300)
 
 jose.display_user_balance()
-#USUARIO VICTOR
+#USUARIO2 VICTOR
 victor.make_deposit(2400)
 victor.make_deposit(200)
 
@@ -41,19 +41,16 @@ victor.make_withdrawal(1200)
 victor.make_withdrawal(20)
 
 victor.display_user_balance()
-#USUARIO MECIAS
-mecias.make_deposit(4500)
-mecias.make_deposit(300)
+#USUARIO3 MECIAS
+mecias.make_deposit(4800)
 
+mecias.make_withdrawal(300)
 mecias.make_withdrawal(200)
 mecias.make_withdrawal(50)
+
 mecias.display_user_balance()
 #TRANSFERENCIA ENTRE USUARIOS
-mecias.transfer_money(250,jose)
-mecias.transfer_money(300,victor)
+jose.transfer_money(200,mecias)
 
-victor.transfer_money(90,mecias)
-victor.transfer_money(100,jose)
-
-jose.transfer_money(80,mecias)
-jose.transfer_money(200,victor)
+jose.display_user_balance()
+mecias.display_user_balance()
