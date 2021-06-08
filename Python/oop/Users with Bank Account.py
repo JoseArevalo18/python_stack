@@ -11,7 +11,7 @@ class Usuario:
         elif accountType == "Ahorros":
             self.accountA.deposit(amount)
         else:
-            print("Tipo de cuenta invalido!!")
+            print("!!!Tipo de cuenta invalido!!!")
         return self
     
     def retiro(self,amount,accountType):
@@ -20,7 +20,7 @@ class Usuario:
         elif accountType == "Ahorros":
             self.accountA.withdraw(amount)
         else:
-            print("Tipo de cuenta invalido!!")
+            print("!!!Tipo de cuenta invalido!!!")
         return self
     
     def display_user_balance(self):
@@ -70,5 +70,7 @@ victor = Usuario("Victor Arevalo", "vity_arevalo@hotmail.com")
 jose.deposito(200,"Corriente").deposito(100,"Ahorros").deposito(50,"Ahorros").retiro(200,"Ahorros").display_user_balance()
 
 victor.deposito(100,"Corriente").deposito(300,"Ahorros").retiro(90,"Corriente").retiro(10,"Ahorros").retiro(20,"Corriente").display_user_balance()
+
+victor.deposito(100,"perro")
 
 jose.tranferencia(250,victor)
