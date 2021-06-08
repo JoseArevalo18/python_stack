@@ -27,5 +27,7 @@ class bankAccount:
 cuenta1 = bankAccount(0.08,200)
 cuenta2 = bankAccount(0.04,500)
 #DEPOSITIOS Y RETIROS
+#En la primera cuenta, realice 3 depósitos y 1 retiro, luego calcule los intereses y muestre la información de la cuenta en una sola línea de código (es decir, encadenamiento)
 cuenta1.deposito(100).deposito(100).deposito(200).retiro(500).yield_interest().display_account_info()
+#En la segunda cuenta, realice 2 depósitos y 4 retiros, luego calcule los intereses y muestre la información de la cuenta en una sola línea de código (es decir, encadenamiento)
 cuenta2.deposito(200).deposito(150).retiro(900).retiro(100).retiro(50).retiro(50).yield_interest().display_account_info()
