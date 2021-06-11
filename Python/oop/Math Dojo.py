@@ -16,6 +16,7 @@ class MathDojo:
 # crear una instruccion:
 md = MathDojo()
 # para probar:
-x = md.add(2).add(2,5,1).subtract(3,2).result
+# x = md.add(2).add(2,5,1).subtract(3,2).result
+x = md.add(2).add(15,30).add(15,5,60).subtract(10).subtract(35,10).subtract(25,10,5).result
 print(x) #debe imprimir 5
 # corre cada uno de los metodos algunos mas veces y valida el resultado!
