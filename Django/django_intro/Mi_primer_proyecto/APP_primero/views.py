@@ -6,22 +6,22 @@ def root(request):
     return redirect("/blogs")
 
 def index(request):
-    return HttpResponse("placeholder para luego mostrar una lista de todos los blogs")
+    return HttpResponse("PLACEHOLDER MOSTRARA UNA LISTAD DE TODOS LOS BLOGS")
 
 def new(request):
-    return HttpResponse("placeholder para mostrar un nuevo formulario para crear un nuevo blog")
+    return HttpResponse("PLACEHOLDER MOSTRARA UN NUEVO FORMULARIO")
 
 def create(request):
-    return redirect("/")
+    return HttpResponse("PLACEHOLDER MOSTRARA UN NUEVO FORMULARIO PARA CREAR UN BLOG")
 
 def show(request,number):
-    return HttpResponse(f"placeholder para mostrar el blog numero: {number}")
+    return HttpResponse(f"PLACEHOLDER NOS MOSTRARA EL BLOG NUMERO: {number}")
 
 def edit(request,number):
-    return HttpResponse(f"placeholder para editar el blog {number}")
+    return HttpResponse(f"PLACEHOLDER MOSTRARA PARA EDITAR EL BLOG NUMERO: {number}")
     
 def destroy(request,number):
     return redirect("/blogs")
 
 def jres(request):
-    return JsonResponse({'Titulo':'Un Json!!'})
+    return JsonResponse({' UN TITULO ':'!!ESTO ES UN JSON!!'})
