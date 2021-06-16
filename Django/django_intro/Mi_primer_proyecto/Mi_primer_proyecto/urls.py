@@ -1,4 +1,4 @@
-"""first_project URL Configuration
+"""Mi_primer_proyecto URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -13,10 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path, include           # importa include
-# desde django.contrib importa admin            # comentar o simplemente eliminar
+from django.contrib import admin
+from django.urls import path
+
 urlpatterns = [
-    path('blogs', include('blogs_app.urls')),
-    path('encuestas', include('encuestas_app.urls')),
-    path('', include('usuarios_app.urls')),
+    path('admin/', admin.site.urls),
 ]
