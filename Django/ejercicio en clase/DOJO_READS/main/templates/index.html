@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login/registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Register here!</h1>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <!-- REGISTRATION FORM -->
+    <form action="/user/create_user" method="">
+        {% csrf_token %}
+        <label for="name">Name: </label>
+        <input type="text" name="name">
+        <br>
+
+        <label for="name">Alias: </label>
+        <input type="text" name="alias">
+        <br>
+
+        <label for="email">Email: </label>
+        <input type="text" name="email">
+        <br>
+
+        <label for="password">Password: </label>
+        <input type="password" name="password">
+        <br>
+
+        <label for="confirm_password">Please confirm your Password: </label>
+        <input type="confirm_password" name="confirm_password">
+        <br>
+        <button>Create User/autor</button>
+    </form>
+
+    <!-- LOGIN FORM -->
+    <hr>
+    <h1>Login Here!!</h1>
+    <form>
+        {% csrf_token %}
+        <label for="email">Email: </label>
+        <input type="text" name="email">
+        <br>
+
+        <label for="password">Password: </label>
+        <input type="password" name="password">
+        <br>
+        <button>Log In!</button>
+    </form>
+</body>
+</html>
