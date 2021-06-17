@@ -10,6 +10,8 @@ class UserManager(models.Manager):
         errors = {}
         if len(postData['name']) < 2:
             errors['name'] = "Invalid name. Name must be at least 3 characters"
+        if len(postData['alias']) < 2:
+            errors['alias'] = "Invalid name. Alias must be at least 3 characters"
 
 class User(models.Model):
     name = models.CharField(max_length=50)
