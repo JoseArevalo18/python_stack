@@ -12,6 +12,13 @@ class UserManager(models.Manager):
             errors['name'] = "Invalid name. Name must be at least 3 characters"
         if len(postData['alias']) < 2:
             errors['alias'] = "Invalid name. Alias must be at least 3 characters"
+        if not EMAIL_REGEX.match(postData['email']):
+            errors['email'] = "Invalid email"
+        if len(postData['password']) < 5:
+            errors['password'] = "Password must be at least 6 characters"
+        if postData['password'] != postData['confirm_password']:
+            errors['pw_match'] = "Password does not match"
+        return errors
 
 class User(models.Model):
     name = models.CharField(max_length=50)
