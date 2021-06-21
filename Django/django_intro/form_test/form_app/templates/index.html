@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENVIO DE FORMULARIO POST</title>
+</head>
+<body>
+    <h1>PAGINA INDEX</h1>
+    <h3>Crear Usuario</h3>
+    <form action='/users' method='post'>
+        <fieldset>
+            <legend>FORMULARIO:</legend>
+            {% csrf_token %}
+            Nombre o Usuario: <input type='text' name='name'>
+            Email: <input type='text' name='email'>
+            <button type='submit'>Create User'</button>
+        </fieldset>
+    </form>
+</body>
+</html>
