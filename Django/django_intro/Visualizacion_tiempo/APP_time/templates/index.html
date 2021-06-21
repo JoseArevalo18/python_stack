@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="jose arevalo">
+    <meta name="date" content="21/06/2021">
+    <meta name="keywors" content="time display,django">
+    <title>TIME DISPLAY</title>
+    {% load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>The current time and date:</h1>
+        </div>
+        <div id="timedisplay">
+            <div id="datetime">{{ time }}</div>
+        </div>
+    </div>
+    
+    <footer>
+        <div id="localtime">Local date and time: {{ localTime }}</div>
+    </footer> 
+</body>
+</html>
