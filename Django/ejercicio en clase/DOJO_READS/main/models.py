@@ -1,7 +1,7 @@
 from django.db import models
 import re
-
-# Create your models here.
+# crea las variables que se van a utilizar en la aplicacion y las validaciones 
+# contienen los campos escenciales que se van a utilizar
 EMAIL_REGEX = re.compile(r'^[a-zA-z0-9.+_-]+@[a-zA-z0-9]+\.[a-zA-z]+$')
 
 class UserManager(models.Manager):
@@ -21,10 +21,10 @@ class UserManager(models.Manager):
         return errors
 
 class User(models.Model):
-    name = models.CharField(max_length=50)
-    alias = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
+    name       = models.CharField(max_length=50)
+    alias      = models.CharField(max_length=50)
+    email      = models.CharField(max_length=50)
+    password   = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
-    objects = UserManager()
+    update_at  = models.DateTimeField(auto_now=True)
+    objects    = UserManager()
