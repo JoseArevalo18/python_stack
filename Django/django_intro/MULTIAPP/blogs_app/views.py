@@ -21,7 +21,7 @@ def edit(request,number):
     return HttpResponse(f"PLACEHOLDER MOSTRARA PARA EDITAR EL BLOG NUMERO: {number}")
     
 def destroy(request,number):
-    return redirect("/blogs")
+    return redirect("/blogs/")
 
 def jres(request):
     return JsonResponse({' UN TITULO ':'!!ESTO ES UN JSON!!'})

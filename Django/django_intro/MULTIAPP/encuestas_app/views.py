@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import HttpResponse
 
-# Create your views here.
+def perrito(request):
+    return HttpResponse('Placeholder para mostrar todas las encuestas creadas')
+
+def index(request):
+    return HttpResponse('Placeholder para que los usuarios agreguen una nueva encuesta')
+
+
