@@ -1,10 +1,10 @@
 from django.shortcuts import HttpResponse
 
 def nuevo(request):
-    return HttpResponse("marca la posicion para que los usuarios creen un nuevo registro")
+    return HttpResponse("MARCA LA POSICION PARA QUE LOS USUARIOS CREEN UN NUEVO REGISTRO")
 
 def loginf(request):
-    return HttpResponse("marca la posicion para que los usuarios inicien sesion")
+    return HttpResponse("MARCA LA POSICION PARA QUE LOS USUARIOS INICIEN SESION")
 
 def index(request):
-    return HttpResponse("marca de posicion para luego mostrar toda la lista de usuarios")
+    return HttpResponse("MARCA LA POSICION PARA QUE LUEGO MUESTRE TODA LA LISTA DE USUARIOS")
