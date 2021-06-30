@@ -7,24 +7,24 @@
     <title>User Dashboard</title>
 </head>
 <body>
-    <h1>Welcome {{logged_user.name}}</h1>
+    <h1>WELCOME {{logged_user.name}}</h1>
 
-    <!-- TO DO CREAR HTML BOOKS-->
-
+    <!-- TO DO CREAR HTML BOOKS -->
+    
     <a href="/book/book_form">Create new book and add a review</a>
     <br>
     <h2>Recent reviews: </h2>
     {% for review in recent_reviews %}
-    <h3><a href="/book/{{review.user_reviewed.id}}">{{review.book_reviewed.title}}</a></h3>
+    <h3><a href="/book/{{review.book_reviewed.id}}">{{review.book_reviewed.title}}</a></h3>
     <br>
     <p>Rating: {{review.rating}}</p>
     <br>
-    <h4><a href="/book/{{review.user_review.id}}">{{review.user_review.name}}</a>Says: {{review.content}}</h4>
+    <h4><a href="/user/{{review.user_review.id}}">{{review.user_review.name}}</a> Says: {{review.content}}</h4>
     <br>
     <p>Posted on: {{review.created_at}}</p>
     {% endfor %}
     <hr>
-    <h3>All bokks</h3>
+    <h3>All books</h3>
     <ul>
         {% for book in all_books %}
             {% if book.book_reviews.all|length > 0 %}
