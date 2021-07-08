@@ -1,0 +1,32 @@
+
+                       --CREA 3 NUEVOS USUARIOS--
+>>> Usuario.objects.create(first_name = "Jose", last_name = "Arevalo",email_address = "josealfredoee@hotmail.es",age = "21")
+<Usuario object: Jose Arevalo josealfredoee@hotmail.es 21 (1)
+>>> Usuario.objects.create(first_name = "Victor", last_name = "Arevalo",email_address = "vity_arevalo@hotmail.com",age = "30") 
+<Usuario object: Victor Arevalo vity_arevalo@hotmail.com 30 (2)
+>>> Usuario.objects.create(first_name = "Maria", last_name = "Castro",email_address = "maricaas@hotmail.com",age = "50")       
+<Usuario object: Maria Castro maricaas@hotmail.com 50 (3)
+                       --RECUPERA TODOS LOS USUARIOS--
+>>> Usuario.objects.all()
+<QuerySet [<Usuario object: Jose Arevalo josealfredoee@hotmail.es 21 (1), <Usuario object: Victor Arevalo vity_arevalo@hotmail.com 30 (2), <Usuario object: Maria Castro maricaas@hotmail.com 50 (3)]>
+                       --RECUPERA EL ULTIMO USUARIO--
+>>> Usuario.objects.all().last()  
+<Usuario object: Maria Castro maricaas@hotmail.com 50 (3)
+                       --RECUPERA EL PRIMER USUARIO--
+>>> Usuario.objects.all().first()
+<Usuario object: Jose Arevalo josealfredoee@hotmail.es 21 (1)
+        --CAMBIE EL USUARIO CON ID=3 PARA QUE SEA SU APELLIDO SEA PANCAKES--
+>>> Usuario.objects.get(id=3)
+<Usuario object: Maria Castro maricaas@hotmail.com 50 (3)
+>>> Usuario_to_update = Usuario.objects.get(id=3) 
+>>> Usuario_to_update.last_name = "Pancakes"     
+>>> Usuario_to_update.save()                  
+>>> Usuario.objects.get(id=3)
+<Usuario object: Maria Pancakes maricaas@hotmail.com 50 (3)
+              --ELIMINAR EL USUARIO CON EL ID=2 DE LA BASE DE DATOS--
+>>> Usuario_to_delete = Usuario.objects.get(id=2) 
+>>> Usuario_to_delete.delete()                   
+(1, {'users_app.Usuario': 1})
+>>> Usuario.objects.all()       
+<QuerySet [<Usuario object: Jose Arevalo josealfredoee@hotmail.es 21 (1), <Usuario object: Maria Pancakes maricaas@hotmail.com 50 (3)]>
+              --OBTENGA TODOS LOS USUARIOS ORDENADOS POR SU NOMBRE--
