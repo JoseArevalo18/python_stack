@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-km@o^&octsuy2$11449dzar^0i%j332)+#cbmty&65p0_wq(=*'
+SECRET_KEY = 'django-insecure-7-5mi$sjm#6pdv48_39c)6*k+-ss(4jkiw&_26iml4(nl35ju4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'dojo_ninjas_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
