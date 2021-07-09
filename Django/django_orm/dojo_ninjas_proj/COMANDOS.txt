@@ -1,0 +1,109 @@
+                           ----EJECUTAMOS-----
+pip install ipython
+py manage.py makemigrations
+py manage.py migrate
+py manage.py shell
+from dojo_ninjas_app.models import Dojos, Ninjas
+
+                          --CREA 3 NUEVOS DOJOS--
+In [2]: Dojos.objects.create(name="LIGA",city="Quito",state="PI")
+Out[2]: <Dojos: Dojos object (1)>
+
+In [3]: Dojos.objects.create(name="BARCELONA",city="Guayaquil",state="GU")
+Out[3]: <Dojos: Dojos object (2)>
+
+In [4]: Dojos.objects.create(name="OLMEDO",city="Riobamba",state="RB")
+Out[4]: <Dojos: Dojos object (3)>
+
+                  --ELIMINA LOS 3 DOJOS QUE ACABAS DE CREAR--
+In [5]: dojo_delete= Dojos.objects.get(id=1)
+In [6]: dojo_delete.delete()
+Out[6]: (1, {'dojo_ninjas_app.Dojos': 1})
+
+In [7]: dojo_delete= Dojos.objects.get(id=2)
+In [8]: dojo_delete.delete()
+Out[8]: (1, {'dojo_ninjas_app.Dojos': 1})
+
+In [9]: dojo_delete= Dojos.objects.get(id=3)
+In [10]: dojo_delete.delete()
+Out[10]: (1, {'dojo_ninjas_app.Dojos': 1})
+
+                          -- CREA 3 DOJOS MAS--
+In [11]: Dojos.objects.create(name="TECNICO",city="Ambato",state="TH")
+Out[11]: <Dojos: Dojos object (4)>
+
+In [12]: Dojos.objects.create(name="DELFIN",city="Esmeraldas",state="ES")
+Out[12]: <Dojos: Dojos object (5)>
+
+In [13]: Dojos.objects.create(name="MACARA",city="Latacunga",state="CX")
+Out[13]: <Dojos: Dojos object (6)>
+
+                --CREA 3 NINJAS QUE PERTENECEN AL PRIMER DOJO--
+
+In [14]: Ninjas.objects.create(dojo=Dojos.objects.get(id=4),first_name="Jose",last_name="Arevalo")
+Out[14]: <Ninjas: Ninjas object (1)>
+
+In [15]: Ninjas.objects.create(dojo=Dojos.objects.get(id=4),first_name="Victor",last_name="Arevalo")
+Out[15]: <Ninjas: Ninjas object (2)>
+
+In [16]: Ninjas.objects.create(dojo=Dojos.objects.get(id=4),first_name="Manuel",last_name="Arevalo")
+Out[16]: <Ninjas: Ninjas object (3)>
+
+                --CREA 3 NINJAS QUE PERTENECEN AL SEGUNDO DOJO--
+In [17]: Ninjas.objects.create(dojo=Dojos.objects.get(id=5),first_name="Pedro",last_name="Infante")
+Out[17]: <Ninjas: Ninjas object (4)>
+
+In [18]: Ninjas.objects.create(dojo=Dojos.objects.get(id=5),first_name="Kevin",last_name="Infante")
+Out[18]: <Ninjas: Ninjas object (5)>
+
+In [19]: Ninjas.objects.create(dojo=Dojos.objects.get(id=5),first_name="Bryan",last_name="Infante")
+Out[19]: <Ninjas: Ninjas object (6)>
+
+                --CREA 3 NINJAS QUE PERTENECEN AL TERCERO DOJO--
+
+In [20]: Ninjas.objects.create(dojo=Dojos.objects.get(id=6),first_name="Goku",last_name="Son")
+Out[20]: <Ninjas: Ninjas object (7)>
+
+In [21]: Ninjas.objects.create(dojo=Dojos.objects.get(id=6),first_name="Goten",last_name="Son")
+Out[21]: <Ninjas: Ninjas object (8)>
+
+In [22]: Ninjas.objects.create(dojo=Dojos.objects.get(id=6),first_name="Gohan",last_name="Son")
+Out[22]: <Ninjas: Ninjas object (9)>
+
+                 --RECUPERA TODOS LOS NINJAS DEL PRIMER DOJO--
+
+In [23]: Ninjas.objects.filter(dojo=Dojos.objects.get(id=4))
+Out[23]: <QuerySet [<Ninjas: Ninjas object (1)>, <Ninjas: Ninjas object (2)>, <Ninjas: Ninjas object 
+(3)>]>
+
+                 --RECUPERA TODOS LOS NINJAS DEL ULTIMO DOJO--
+
+In [24]: Ninjas.objects.filter(dojo=Dojos.objects.get(id=6))
+Out[24]: <QuerySet [<Ninjas: Ninjas object (7)>, <Ninjas: Ninjas object (8)>, <Ninjas: Ninjas object 
+(9)>]>
+
+                       --RECUPERA EL ULTIMO DOJO NINJA--
+
+In [25]: Ninjas.objects.all().last()
+Out[25]: <Ninjas: Ninjas object (9)>
+
+--CREA Y EJECUTA LOS ARCHIVOS DE MIGRACIÓN PARA ACTUALIZAR LA TABLA EN SU BASE DE DATOS. SI ES NECESARIO, PROPORCIONE UN VALOR PREDETERMINADO DE "DOJO ANTIGUO"--
+1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> "dojo antiguo"
+Migrations for 'dijo_ninjas_app':
+  dijo_ninjas_app\migrations\0002_dojos_desc.py
+    - Add field desc to dojos
+(djangoPy3Env) C:\Users\josea\Desktop\CODING DOJO\2DO STACK\PYTHON\REPOSITORIO REMOTO\python_stack\Django\django_orm\dojo_ninjas_proj>py manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dijo_ninjas_app.0002_dojos_desc... OK
+
+                     --CREA UN NUEVO DOJO--
+In [2]: Dojos.objects.create(name="EMELEC",city="Machala",state="BB",desc="Nuevo dojo")
+Out[2]: <Dojos: Dojos object (7)>
