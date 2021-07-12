@@ -15,7 +15,7 @@ Out[5]: <Book: Book object (4)>
 In [6]: Book.objects.create(title="RUBY",desc="Es el libro 5")
 Out[6]: <Book: Book object (5)>
 
---CREA 5 AUTORES DIFERENTES:JANE AUSTEN, EMILY DICKINSON, FYODOR DOSTOEVKSY, WILLIAM SHAKESPEARE, LAU TZU--
+    --CREA 5 AUTORES DIFERENTES:JANE AUSTEN, EMILY DICKINSON, FYODOR DOSTOEVKSY, WILLIAM SHAKESPEARE, LAU TZU--
 
 In [7]: Author.objects.create(first_name="JANE", last_name= "AUSTEN")
 Out[7]: <Author: Author object (1)>
@@ -32,7 +32,7 @@ Out[10]: <Author: Author object (4)>
 In [11]: Author.objects.create(first_name="LAU", last_name= "TZU")
 Out[11]: <Author: Author object (5)>
 
---AGREGUE UN NUEVO CAMPO DE TEXTO EN LA TABLA DE AUTORES LLAMADO NOTAS--
+            --AGREGUE UN NUEVO CAMPO DE TEXTO EN LA TABLA DE AUTORES LLAMADO NOTAS--
 
 (DjangoVENV) C:\Users\josea\Desktop\CODING DOJO\2DO STACK\PYTHON\REPOSITORIO REMOTO\python_stack\Django\django_orm\book_authors_proj>py manage.py makemigrations
 You are trying to add a non-nullable field 'notes' to author without a default; we can't do that (the database needs something to populate existing rows).
