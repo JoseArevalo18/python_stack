@@ -1,0 +1,116 @@
+         --CREA 5 LIBROS CON LOS SIGUIENTES NOMBRES: C SHARP, JAVA, PYTHON,PHP, RUBY--
+
+In [2]: Book.objects.create(title="C SHARP",desc="Es el libro 1")
+Out[2]: <Book: Book object (1)>
+
+In [3]: Book.objects.create(title="JAVA",desc="Es el libro 2")
+Out[3]: <Book: Book object (2)>
+
+In [4]: Book.objects.create(title="PYTHON",desc="Es el libro 3")
+Out[4]: <Book: Book object (3)>
+
+In [5]: Book.objects.create(title="PHP",desc="Es el libro 4")
+Out[5]: <Book: Book object (4)>
+
+In [6]: Book.objects.create(title="RUBY",desc="Es el libro 5")
+Out[6]: <Book: Book object (5)>
+
+--CREA 5 AUTORES DIFERENTES:JANE AUSTEN, EMILY DICKINSON, FYODOR DOSTOEVKSY, WILLIAM SHAKESPEARE, LAU TZU--
+
+In [7]: Author.objects.create(first_name="JANE", last_name= "AUSTEN")
+Out[7]: <Author: Author object (1)>
+
+In [8]: Author.objects.create(first_name="EMILY", last_name= "DICKINSON")
+Out[8]: <Author: Author object (2)>
+
+In [9]: Author.objects.create(first_name="FYODOR", last_name= "DOSTOEVKSY")
+Out[9]: <Author: Author object (3)>
+
+In [10]: Author.objects.create(first_name="WILLIAM", last_name= "SHAKESPEARE")
+Out[10]: <Author: Author object (4)>
+
+In [11]: Author.objects.create(first_name="LAU", last_name= "TZU")
+Out[11]: <Author: Author object (5)>
+
+--AGREGUE UN NUEVO CAMPO DE TEXTO EN LA TABLA DE AUTORES LLAMADO NOTAS--
+
+(DjangoVENV) C:\Users\josea\Desktop\CODING DOJO\2DO STACK\PYTHON\REPOSITORIO REMOTO\python_stack\Django\django_orm\book_authors_proj>py manage.py makemigrations
+You are trying to add a non-nullable field 'notes' to author without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> ""
+Migrations for 'books_authors_app':
+  books_authors_app\migrations\0002_author_notes.py
+    - Add field notes to author
+(DjangoVENV) C:\Users\josea\Desktop\CODING DOJO\2DO STACK\PYTHON\REPOSITORIO REMOTO\python_stack\Django\django_orm\book_authors_proj>py manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, books_authors_app, contenttypes, sessions
+Running migrations:
+  Applying books_authors_app.0002_author_notes... OK
+
+                   --CAMBIE EL NOMBRE DEL LIBRO DE C SHARP A C #--
+
+In [2]: cambiar_nombre = Book.objects.get(id="1")
+In [3]: cambiar_nombre.title= "C #"
+
+                    --CAMBIE EL NOMBRE DEL CUARTO AUTOR A BILL--
+
+In [4]: cambiar_nombre = Author.objects.get(id="4")
+In [5]: cambiar_nombre.first_name = "BILL"
+
+                 --ASIGNA EL PRIMER AUTOR A LOS PRIMEROS 2 LIBROS--
+
+In [6]: primer_autor = Author.objects.get(id="1")
+In [7]: libro1 = Book.objects.get(id="1")
+In [8]: libro2 = Book.objects.get(id="2")
+In [9]: primer_autor.book.add(libro1, libro2)
+
+                 --ASIGNE EL SEGUNDO AUTOR A LOS PRIMEROS 3 LIBROS--
+
+In [10]: segundo_autor = Author.objects.get(id="2")
+In [11]: libro3= Book.objects.get(id="3")
+In [12]: segundo_autor.book.add(libro1, libro2, libro3)
+
+                 --ASIGNA EL TERCER AUTOR A LOS PRIMEROS 4 LIBROS--
+
+In [13]: tercer_autor = Author.objects.get(id="3")
+In [14]: libro4= Book.objects.get(id="4")
+In [15]: tercer_autor.book.add(libro1, libro2, libro3, libro4)
+
+  --ASIGNE EL CUARTO AUTOR A LOS PRIMEROS 5 LIBROS (O EN OTRAS PALABRAS, TODOS LOS LIBROS)--
+
+In [16]: cuarto_autor = Author.objects.get(id="4")
+In [17]: libro5= Book.objects.get(id="5")
+In [18]: cuarto_autor.book.add(libro1, libro2, libro3, libro4, libro5)
+
+                   --RECUPERA A TODOS LOS AUTORES DEL TERCER LIBRO--
+
+In [19]: Author.objects.filter(book=Book.objects.get(id="3"))
+Out[19]: <QuerySet [<Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>]>
+
+                     --ELIMINAR AL PRIMER AUTOR DEL TERCER LIBRO--
+
+In [20]: autor_libro3 = Author.objects.filter(book=Book.objects.get(id="3"))
+In [21]: libro3.authors.remove(autor_libro3[0])
+
+           --AGREGUE EL QUINTO AUTOR COMO UNO DE LOS AUTORES DEL SEGUNDO LIBRO--
+
+In [22]: quinto_autor = Author.objects.get(id="5")
+In [23]: segundo_libro = Book.objects.get(id="5")
+In [24]: segundo_libro.authors.add(quinto_autor)
+
+            --ENCUENTRA TODOS LOS LIBROS DE LOS QUE EL TERCER AUTOR ES PARTE--
+
+In [25]: Book.objects.filter(authors=Author.objects.get(id="3"))
+Out[25]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+
+
+            --ENCUENTRA TODOS LOS AUTORES QUE CONTRIBUYERON AL QUINTO LIBRO--
+
+In [26]: Author.objects.filter(book=Book.objects.get(id="5"))
+Out[26]: <QuerySet [<Author: Author object (4)>, <Author: Author object (5)>]>
