@@ -15,7 +15,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="show_id" value="{{ new_show.id }}">
                 <input type="hidden" name="is_edit" value="yes">
-                <h2>Update Show Information:</h2>
+                <h2>Edit Show Information:</h2>
                 {% if messages %}
                 {% for message in messages %}
                 <ul>
