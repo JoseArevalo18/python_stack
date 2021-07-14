@@ -14,7 +14,7 @@
                 {% csrf_token %}
                 <label for="name">Nombre:</label><br>
                 <input type="text" name="name" readonly value="{{ del_course.name }}"><br>
-                <label for="description">Reseña:</label><br>
+                <label for="description">Descripcion:</label><br>
                 <textarea name="description" id="description" readonly cols="30" rows="5">{{ del_course.description.description }}</textarea><br>
                 <input type="submit" name="confirm" value="No"><input type="submit" name="confirm" value="Yes! I want to delete this">
             </form>
