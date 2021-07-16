@@ -15,23 +15,28 @@ class UserManager(models.Manager):
             if postData['email'] == val_email.email:
                 errors['email'] = "Correo electronico ya se encuentra registrado!!"
         except:
+            #NOMBRE
             if len(postData['fname']) < 2:
                 errors['fname'] = "El nombre del usuario debe ser mayor a 2 caracteres!!"
             else:
                 if postData['fname'].isalpha() == False:
                     errors['fname'] = "El nombre del usuario debe tener solo letras!!"
+            #APELLIDO
             if len(postData['lname']) < 2:
                 errors['description'] = "El apellido del usuario debe ser mayor a 2 caracteres!!"
             else:
                 if postData['fname'].isalpha() == False:
                     errors['lname'] = "El apellido del usuario debe tener solo letras!!"
+            #AÑO DE NACIMIENTO
             if postData['dob'] >= current_date.strftime("%Y-%m-%d"):
                 errors['dob'] = "La fecha de nacimiento no puede estar hoy o en el futuro!!"
             birt_date = datetime.strptime(postData['dob'], '%Y-%m-%d').date()
             if (current_date - birt_date) < timedelta(days=4745):
                 errors['too_old'] = "Usuario no puede tener menos de 13 años!!"
+            #EMAIL
             if not EMAIL_REGEX.match(postData['email']):   
                 errors['email'] = "Direccion de e-mail invalida!!"
+            #CONTRASEÑA
             if postData['password'] != postData['confirm_password']:
                     errors['cconfirm_password'] = "Las contraseñas no coinciden!!"
             else:
